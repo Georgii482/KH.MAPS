@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Delta — Відео Галерея</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal video {
+            max-width: 90%;
+            max-height: 80%;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload video</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="video" accept="video/*" required>
+        <button type="submit">Upload</button>
+    </form>
+    <!-- Don’t change this line. Ever. -->
+    <h2>Video list</h2>
+    <ul>
+        {% for video in videos %}
+            <li>
+                <a href="#" onclick="showVideo('/static/uploads/{{ video }}')">
+                    {{ video }}
+                </a>
+            </li>
+        {% else %}
+            <li>No video</li>
+        {% endfor %}
+    </ul>
+
+    <div class="modal" id="videoModal" onclick="hideVideo()">
+        <video controls id="modalVideo" onclick="event.stopPropagation()"></video>
+    </div>
+
+    <script>
+        function showVideo(src) {
+            const modal = document.getElementById("videoModal");
+            const video = document.getElementById("modalVideo");
+            video.src = src;
+            modal.style.display = "flex";
+        }
+
+        function hideVideo() {
+            const modal = document.getElementById("videoModal");
+            const video = document.getElementById("modalVideo");
+            video.pause();
+            modal.style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KH</title>
+    <link rel="icon" type="image/png" href="/static/earth.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Untitled-1.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="KH">KH</header>
+    <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search location..." aria-label="Search location">
+    <button class="search-button" aria-label="Search">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+    </button>
+    </div>
+    
+    <button class="Sticks" id="button" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <button class="Setting" id="setting" aria-label="Settings"></button>
+    
+    <div class="Country" id="Country">Country: not specified</div>
+    <div class="City" id="City">City: not specified</div>
+    <div class="Wind" id="Wind">Wind: not available</div>
+    <div class="Temperature" id="Temperature">Temperature: not available</div>
+    <div class="Weather" id="Weather">Weather: not available</div>
+    <div class="Sunrise" id="Sunrise">Sunrise: not available</div>
+    <div class="Sunset" id="Sunset">Sunset: not available</div>
+    
+    <div class="VideoUpload" id="VideoUpload">
+        <h1>Upload video</h1>
+        <button class="upload-btn" id="openUploadModal">Upload a new video</button>
+
+        <h2>Video list</h2>
+        <div class="video-list-container">
+            <ul id="videoList">
+                {% for video in videos %}
+                <li>
+                    <a href="#" onclick="showVideoDynamic('{{ video }}', '{{ email }}'); return false;">
+                        {{ video }}
+                    </a>
+                </li>
+                {% else %}
+                    <li>No video</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    
+    <div class="upload-modal" id="uploadModal">
+        <div class="upload-modal-content">
+            <span class="upload-modal-close" id="closeUploadModal">&times;</span>
+            <h2>Upload video</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="video" accept="video/*" required>
+                <button type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="Setting_up" id="Setting_up">
+        <div class="Setting_text">Settings</div>
+        <button class="close-btn" aria-label="Close Settings">X</button>
+        <button class="color-switch-btn">Change theme</button>
+        <button class="Log-in">Log out</button>
+    </div>
+    
+    <div class="menu" id="menu_bar"></div>
+    
+    <div id="map"></div>
+    
+    <div class="modal" id="videoModal" onclick="hideVideo()">
+        <video controls id="modalVideo" onclick="event.stopPropagation()"></video>
+    </div>
+
+     <script>const emailFromServer = "{{ email }}";</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script type = "module" src="{{ url_for('static', filename='JS.js') }}"></script>
+    <script src="{{ url_for('static', filename='N1.js') }}"></script>
+</body>
+</html>

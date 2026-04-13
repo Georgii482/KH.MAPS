@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KH</title>
+    <link rel="icon" type="image/png" href="/static/earth.png">
+    <link rel="stylesheet" href="{{ url_for('static', filename='Untitled-1.css') }}">
+</head>
+<body>
+    
+
+    <div class="hero-container">
+      <div class="all">
+      <video autoplay muted loop playsinline class="background-video">
+        <source src="/static/2025-05-06 01-54-41.mp4" type="video/mp4" />
+        Your browser does not support video.
+      </video>
+      </div>
+      <div class="logo">
+        <h1 class="K" id="logo">K</h1>
+        <h1 class="H"  id="logo">H</h1>
+      </div>
+  
+      <div class="content-overlay">
+        <h1 class="textBr all">Welcome to KH</h1>
+        <p class="textBr all">Discover the world around you.</p>
+        <button class="start-button all">START</button>
+      </div>
+  </div>
+
+    <button class="Setting all" id="setting"></button>
+    
+    <div class="KH all">KH</div>
+    <div class="menu all" id="menu_bar">Додаток</div>
+    <div class="Setting_up all"  class="all" id="Setting_up">
+        <div class="Setting_text all">Settings</div>
+        <button class="close-btn all">X</button>
+        <button class="color-switch-btn all">Change theme</button>
+    </div>
+    <section class="about-section" id="about-text">
+      <div class="container">
+        <h2>About the site</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <p>Want to change the website's theme? 
+              Store your vacation videos nobody really cares about?
+              KH is just for you!
+              Forget the competition — KH beats all the traffic stats!
+              Currently online: 1 user.
+            </p>
+            <p>KH - Kept Hanging</p>
+            <div class="features">
+              <div class="feature">
+                <h3>Interactive Maps</h3>
+                <p>KH features interactive maps similar to Google Maps, but with extended functionality!
+                We use the Leaflet API to display the map.
+                The website allows you to:
+                Create custom routes
+                View route information
+                Use map data from the latest update!
+                </p>
+              </div>
+              <div class="feature">
+                <h3>Weather Information</h3>
+                <p>To provide weather data, we use the OpenWeatherMap API.
+                  You can:
+                  Check real-time weather updates
+                  View forecasts for different countries across the globe!
+                </p>
+                <!--Why are you reading this?-->
+              </div>
+              <div class="feature">
+                <h3>Video Sharing</h3>
+                <p>You’ll need to create an account to upload media.
+                  Passwords are hashed, and your data is probably under full control.
+                  At least, we hope so!</p>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="image-placeholder">
+              <img src="/static/earth.png" alt="World Map" class="about-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <h2>KH</h2>
+            <p>Discover the world around you.</p>
+            <p>The APIs are free, so we kindly ask you not to DDoS us.</p>
+          </div>
+          <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#about-text">About</a></li>
+              <li><a  href="#" id="PrivacyPolicy">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-contact">
+            <h3>Contact Us</h3>
+            <p><strong>Email:</strong> KH@gmail.com</p>
+            <p><strong>Phone:</strong> +380 12 345 6789</p>
+            <p><strong>Address:</strong> Kyiv, Ukraine</p>
+            <div class="social-icons">
+              <a href="https://x.com/kepthanging" class="social-icon">X</a>
+              <a href="https://t.me/+nmAvtUnBNPM1ODFi" class="social-icon">TG</a>
+              <a href="https://www.youtube.com/@KH-PROJECTS-h7y" class="social-icon">YT</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 KH. Some rights reversed</p>
+        </div>
+      </div>
+    </footer>
+    <script src="{{ url_for('static', filename='N1.js') }}"></script>
+    <script src="{{ url_for('static', filename='Registration.js') }}"></script>
+</body>
+</html>
